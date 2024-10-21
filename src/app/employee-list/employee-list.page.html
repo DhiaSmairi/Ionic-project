@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Employee List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="addEmployee()">
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="newEmployee.name" name="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Position</ion-label>
+      <ion-input [(ngModel)]="newEmployee.position" name="position" required></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit" class="ion-margin-top">Add Employee</ion-button>
+  </form>
+
+  <ion-list>
+    <ion-item *ngFor="let employee of employees">
+      <ion-label>
+        <h2>{{employee.name}}</h2>
+        <p>{{employee.position}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
